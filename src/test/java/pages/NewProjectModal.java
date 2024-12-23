@@ -34,7 +34,7 @@ public class NewProjectModal {
         return this;
     }
 
-    @Step("Выбрать радиобатон {radiobutton}")
+    @Step("Выбрать кнопку {radiobutton}")
     public void clickRadioButton(String radiobutton) {
         $(By.xpath(String.format(RADIOBUTTON, radiobutton))).click();
     }

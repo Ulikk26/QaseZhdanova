@@ -14,9 +14,9 @@ public class LoginSteps {
     }
 
     @Step("Авторизация")
-    public void login() {
+    public void login(String user, String password) {
         loginPage.openPage();
-        loginPage.login();
+        loginPage.login(user, password);
         projectsPage.waitTillOpened();
     }
 }

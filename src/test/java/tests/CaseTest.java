@@ -20,7 +20,7 @@ public class CaseTest extends BaseTest {
     @Test(testName = "Проверка создания тест-кейса", description = "Проверка создания тест-кейса")
     @Description("Проверка создания тест-кейса")
     public void checkCreateCase() {
-        loginSteps.login();
+        loginSteps.login(user, password);
         projectsSteps.create(project, "Public", repositoryName);
         projectSteps.openProjectPage(repositoryName);
         caseSteps.create(repositoryName, testCase, caseName);

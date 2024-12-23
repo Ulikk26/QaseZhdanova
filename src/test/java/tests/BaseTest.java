@@ -6,7 +6,6 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import pages.*;
 import steps.*;
 import utils.PropertyReader;
 
@@ -14,21 +13,15 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class BaseTest {
 
-    LoginPage loginPage;
-    ProjectsPage projectsPage;
     LoginSteps loginSteps;
     ProjectsSteps projectsSteps;
-    NewProjectModal newProjectModal;
-    ProjectPage createdProjectPage;
-    SuitePageModal suitePageModal;
     SuiteSteps suiteSteps;
-    CasePage casePage;
     CaseSteps caseSteps;
     ProjectSteps projectSteps;
 
     String baseUrl = System.getProperty("baseUrl", PropertyReader.getProperty("baseUrl"));
     String user = System.getProperty("user", PropertyReader.getProperty("user"));
-    String login = System.getProperty("login", PropertyReader.getProperty("login"));
+    String password = System.getProperty("password", PropertyReader.getProperty("password"));
     String projectName = System.getProperty("projectName", PropertyReader.getProperty("projectName"));
     String repositoryName = System.getProperty("repositoryName", PropertyReader.getProperty("repositoryName"));
     String suiteName = System.getProperty("suiteName", PropertyReader.getProperty("suiteName"));
@@ -49,15 +42,10 @@ public class BaseTest {
 //         getWebDriver(); //вызов драйвера
 //        WebDriver driver=new ChromeDriver();
 //        setWebDriver(driver);
-        loginPage = new LoginPage();
-        projectsPage = new ProjectsPage();
+
         loginSteps = new LoginSteps();
         projectsSteps = new ProjectsSteps();
-        newProjectModal = new NewProjectModal();
-        createdProjectPage = new ProjectPage();
-        suitePageModal = new SuitePageModal();
         suiteSteps = new SuiteSteps();
-        casePage = new CasePage();
         caseSteps = new CaseSteps();
         projectSteps = new ProjectSteps();
 

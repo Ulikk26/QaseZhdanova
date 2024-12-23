@@ -17,7 +17,7 @@ public class SuiteTest extends BaseTest {
     @Test(testName = "Проверка создания сьюта", description = "Проверка создания сьюта")
     @Description("Проверка создания сьюта")
     public void checkCreateSuite() {
-        loginSteps.login();
+        loginSteps.login(user, password);
         projectsSteps.create(project, "Public", repositoryName);
         suiteSteps.createSuite(repositoryName, suite, suiteName);
     }

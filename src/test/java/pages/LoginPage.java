@@ -1,7 +1,6 @@
 package pages;
 
 import io.qameta.allure.Step;
-import utils.PropertyReader;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
@@ -12,9 +11,6 @@ public class LoginPage {
             PASSWORD = "[name=password]",
             BUTTON_SING_IN = "Sign in";
 
-    String user = System.getProperty("user", PropertyReader.getProperty("user"));
-    String login = System.getProperty("login", PropertyReader.getProperty("login"));
-
     @Step("Открытие страницы авторизации")
     public LoginPage openPage() {
         open("login");
@@ -22,9 +18,9 @@ public class LoginPage {
     }
 
     @Step("Авторизация в проекте")
-    public void login() {
+    public void login(String user, String password) {
         $(USER).setValue(user);
-        $(PASSWORD).setValue(login);
+        $(PASSWORD).setValue(password);
         $(byText(BUTTON_SING_IN)).click();
     }
 }
